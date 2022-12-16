@@ -1,0 +1,108 @@
+import {StyleSheet} from 'react-native';
+import {
+  widthPercentageToDP,
+  heightPercentageToDP,
+} from '../Components/MakeMeResponsive';
+import {Colors} from './colors';
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: Colors.primarayColor,
+  },
+  loginTitle: {
+    fontSize: widthPercentageToDP(7),
+    fontWeight: 'bold',
+    color: Colors.white,
+    textAlign: 'center',
+    marginVertical: heightPercentageToDP(10),
+  },
+  mainTitle: {
+    fontSize: widthPercentageToDP(7),
+    fontWeight: 'bold',
+    color: Colors.white,
+    textAlign: 'center',
+    marginTop: heightPercentageToDP(2),
+  },
+  loginContainer: {
+    width: widthPercentageToDP(90),
+    height: heightPercentageToDP(50),
+    marginTop: heightPercentageToDP(5),
+    //backgroundColor:Colors.white,
+    alignSelf: 'center',
+  },
+  textInput: {
+    width: widthPercentageToDP(80),
+    height: heightPercentageToDP(6),
+    borderRadius: widthPercentageToDP(10),
+    backgroundColor: Colors.white,
+    fontSize: widthPercentageToDP(4),
+    color: Colors.black,
+    alignSelf: 'center',
+    paddingLeft: widthPercentageToDP(4),
+  },
+  btn: {
+    width: widthPercentageToDP(80),
+    height: heightPercentageToDP(6),
+    alignSelf: 'center',
+    borderRadius: widthPercentageToDP(10),
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.red,
+    marginVertical: heightPercentageToDP(3),
+  },
+  brnText: {
+    fontSize: widthPercentageToDP(5),
+    color: Colors.white,
+    fontWeight: 'bold',
+  },
+  listItems: {
+    width: widthPercentageToDP(80),
+    height: heightPercentageToDP(10),
+    borderRadius: widthPercentageToDP(3),
+    backgroundColor: Colors.white,
+    alignSelf: 'center',
+    padding: widthPercentageToDP(3),
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: heightPercentageToDP(1),
+  },
+  itemTitle: {
+    fontSize: widthPercentageToDP(5),
+    color: Colors.black,
+    fontWeight: 'bold',
+    textAlign: 'justify',
+  },
+  itemDescription: {
+    fontSize: widthPercentageToDP(4),
+    color: Colors.black,
+    fontWeight: '300',
+    //paddingTop: heightPercentageToDP(1),
+    textAlign: 'justify',
+  },
+  itemBtn: {
+    width: widthPercentageToDP(15),
+    height: heightPercentageToDP(4),
+    backgroundColor: Colors.primarayColor,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: widthPercentageToDP(2),
+  },
+  row: {
+    width: '90%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'center',
+    justifyContent: 'space-between',
+  },
+  textInputStyle: {
+    width: widthPercentageToDP(80),
+    height: heightPercentageToDP(6),
+    borderRadius: widthPercentageToDP(10),
+    backgroundColor: Colors.white,
+    fontSize: widthPercentageToDP(4),
+    color: Colors.black,
+    alignSelf: 'center',
+    paddingLeft: widthPercentageToDP(4),
+  },
+});
