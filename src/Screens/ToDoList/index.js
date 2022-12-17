@@ -1,5 +1,5 @@
 //import liraries
-import React, {useEffect} from 'react';
+import React, {useEffect,useState} from 'react';
 import {
   View,
   Text,
@@ -9,7 +9,6 @@ import {
   SafeAreaView,
   TextInput,
 } from 'react-native';
-import useState from 'react-usestateref';
 import {styles} from '../../Utils/styles';
 import {useSelector, useDispatch} from 'react-redux';
 import {
@@ -41,7 +40,7 @@ const ToDoList = props => {
     if (isFocused) {
       if (login) {
         if (!isTokenExpired(login)) {
-          console.log('call from start here')
+          console.log('call from start here');
           getListItemsApi(page);
         } else {
           disptach(refreshMyToken(login));
@@ -51,13 +50,13 @@ const ToDoList = props => {
     return () => {
       setResponse([]);
       setSearch('');
-      setPage(1)
+      setPage(1);
     };
   }, [isFocused, login]);
   useEffect(() => {
     if (page > 1) {
       if (!isTokenExpired(login)) {
-        console.log('call from on page increase')
+        console.log('call from on page increase');
         getListItemsApi(page);
       } else {
         disptach(refreshMyToken(login));
@@ -91,11 +90,17 @@ const ToDoList = props => {
     setLoading(false);
     if (result?.success) {
       const temArr = [...response];
+      const temArr2 = [...filteredDataSource];
       const index = temArr.splice(index2, 1);
+      const index_2 = temArr2.splice(index2, 1);
       if (index > -1) {
         temArr.splice(index, 1);
       }
+      if (index_2 > -1) {
+        index_2.splice(index_2, 1);
+      }
       setResponse(temArr);
+      setFilteredDataSource(temArr2);
     }
   };
   const getSingleRequest = async id => {
@@ -180,22 +185,13 @@ const ToDoList = props => {
       <View style={{marginTop: 10}} />
       {!response || !response?.length ? (
         <View />
-      ) : search ? (
+      ) : (
         <FlatList
-          data={filteredDataSource}
+          data={search ? filteredDataSource : response}
           showsVerticalScrollIndicator={false}
           keyExtractor={(item, index) => '_' + index}
           renderItem={_renderItem}
           onEndReachedThreshold={10}
-          onEndReached={() => loadMoreData()}
-        />
-      ) : (
-        <FlatList
-          data={response}
-          showsVerticalScrollIndicator={false}
-          keyExtractor={(item, index) => '_' + index}
-          renderItem={_renderItem}
-          onEndReachedThreshold={0.2}
           onEndReached={() => loadMoreData()}
         />
       )}
